@@ -7,12 +7,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --red:#E8001D;--red-dark:#B8001A;--red-glow:rgba(232,0,29,0.15);
-  --black:#0A0A0A;--black-mid:#161616;--black-soft:#222;
-  --border:#2A2A2A;--white:#FFFFFF;--text-muted:#888;
-  --gray:#3A3A3A;--gray-light:#F0F0F0;
-}
+:root{--red:#E8001D;--red-dark:#B8001A;--red-glow:rgba(232,0,29,0.15);--black:#0A0A0A;--black-mid:#161616;--black-soft:#222;--border:#2A2A2A;--white:#FFFFFF;--text-muted:#888;--gray:#3A3A3A;}
 body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);min-height:100vh;overflow-x:hidden}
 #surveyApp{min-height:100vh;display:flex;flex-direction:column}
 .top-bar{background:var(--black-mid);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
@@ -73,71 +68,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
 .thankyou{text-align:center;padding:80px 24px}
 .thankyou .big{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--red);letter-spacing:.06em;margin-bottom:16px}
 .thankyou p{color:var(--text-muted);font-size:1rem;max-width:400px;margin:0 auto;line-height:1.6}
-
-/* ADMIN */
-#adminApp{display:none;min-height:100vh}
-.admin-bar{background:var(--black-mid);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
-.admin-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}
-.admin-title span{color:var(--red)}
-.admin-actions{display:flex;gap:12px}
-.btn-csv{background:var(--red);border:none;color:var(--white);padding:8px 20px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;font-weight:600;transition:background .2s}
-.btn-csv:hover{background:var(--red-dark)}
-.btn-logout{background:none;border:1px solid var(--border);color:var(--text-muted);padding:8px 16px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
-.btn-logout:hover{border-color:var(--gray);color:var(--white)}
-.admin-body{padding:32px;max-width:1100px;margin:0 auto}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
-.stat-card{background:var(--black-mid);border:1px solid var(--border);border-radius:8px;padding:24px}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1;margin-bottom:4px}
-.stat-label{font-size:.75rem;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase}
-.admin-section{margin-bottom:36px}
-.admin-section-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.06em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.admin-section-title span{color:var(--red)}
-.bar-chart{display:flex;flex-direction:column;gap:10px}
-.bar-row{display:flex;align-items:center;gap:12px}
-.bar-label{font-size:.8rem;color:var(--text-muted);min-width:170px;text-align:right}
-.bar-track{flex:1;background:var(--black-soft);border-radius:3px;height:10px;overflow:hidden}
-.bar-fill{height:100%;background:var(--red);border-radius:3px;transition:width .6s ease}
-.bar-val{font-size:.78rem;color:var(--white);min-width:24px;font-weight:600}
-.priority-row{display:flex;gap:16px;flex-wrap:wrap}
-.prio-pill{background:var(--black-mid);border:1px solid var(--border);border-radius:6px;padding:16px 24px;text-align:center;min-width:130px}
-.prio-pill .pv{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1}
-.prio-pill .pl{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
-.prio-pill.high .pv{color:#E8001D}
-.prio-pill.mid .pv{color:#E87A00}
-.prio-pill.low .pv{color:#3AB84A}
-.resp-table{width:100%;border-collapse:collapse;font-size:.82rem}
-.resp-table th{text-align:left;padding:10px 12px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);font-weight:600}
-.resp-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
-.resp-table tr:hover td{background:var(--black-mid)}
-.pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.pill-high{background:rgba(232,0,29,.15);color:#E8001D}
-.pill-mid{background:rgba(232,122,0,.15);color:#E87A00}
-.pill-low{background:rgba(58,184,74,.15);color:#3AB84A}
-.no-data{text-align:center;padding:60px 24px;color:var(--text-muted);font-size:.9rem}
-#loginModal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:100}
-#loginModal.show{display:flex}
-.login-box{background:var(--black-mid);border:1px solid var(--border);border-radius:10px;padding:40px;width:320px;animation:fadeUp .3s ease}
-.login-box h2{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:6px;letter-spacing:.06em}
-.login-box h2 span{color:var(--red)}
-.login-box p{font-size:.82rem;color:var(--text-muted);margin-bottom:24px}
-.login-box input{width:100%;background:var(--black-soft);border:1px solid var(--border);border-radius:6px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.95rem;padding:12px 16px;outline:none;margin-bottom:12px;transition:border .2s}
-.login-box input:focus{border-color:var(--red)}
-.login-submit{width:100%;background:var(--red);border:none;color:var(--white);padding:13px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background .2s}
-.login-submit:hover{background:var(--red-dark)}
-.login-err{font-size:.78rem;color:var(--red);margin-top:8px;display:none}
-.login-cancel{display:block;text-align:center;margin-top:12px;font-size:.78rem;color:var(--text-muted);cursor:pointer}
-.login-cancel:hover{color:var(--white)}
-.gemini-card{background:var(--black-mid);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:8px}
-.gemini-card-meta{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.gemini-card-text{font-size:.88rem}
+.submitting{text-align:center;padding:80px 24px}
+.submitting .spin{width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 24px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.submitting p{color:var(--text-muted);font-size:.95rem}
+.error-msg{background:rgba(232,0,29,.1);border:1px solid var(--red);border-radius:6px;padding:12px 16px;font-size:.85rem;color:var(--red);margin-top:16px;display:none}
+.setup-banner{background:rgba(232,120,0,.08);border:1px solid rgba(232,120,0,.4);border-radius:8px;padding:16px 20px;margin-bottom:28px;font-size:.83rem;line-height:1.7;color:#ccc;display:none}
+.setup-banner strong{color:#E87A00}
+.setup-banner code{background:var(--black-soft);padding:2px 7px;border-radius:3px;font-size:.79rem;color:#fff;font-family:monospace}
 </style>
 </head>
 <body>
-
 <div id="surveyApp">
   <div class="top-bar">
     <div class="logo">AI<span>.</span>AUDIT</div>
-    <div class="admin-link" onclick="showLoginModal()">ADMIN ↗</div>
+    <div class="admin-link" id="sheetBtn" onclick="openSheet()">VÝSLEDKY ↗</div>
   </div>
   <div class="progress-wrap">
     <div class="progress-steps">
@@ -147,8 +92,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
     </div>
   </div>
   <div class="section-wrap">
-
     <div class="section active" id="sec0">
+      <div class="setup-banner" id="setupBanner">
+        ⚠️ <strong>Setup potřebný:</strong> Otevři <code>index.html</code>, najdi řádek <code>const SCRIPT_URL</code> a vlož URL svého Apps Script. Postup viz <code>SETUP.txt</code>.
+      </div>
       <div class="section-eyebrow">Sekce 01</div>
       <div class="section-title">KDO JSI?</div>
       <div class="section-sub">Řekni nám, ve kterém týmu pracuješ.</div>
@@ -156,12 +103,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
         <label>Ve kterém týmu pracuješ?</label>
         <input type="text" id="team" placeholder="Např. Marketing, PR, Sales...">
       </div>
-      <div class="nav-wrap">
-        <div></div>
-        <button class="btn-next" onclick="goNext(0)">Pokračovat →</button>
-      </div>
+      <div class="nav-wrap"><div></div><button class="btn-next" onclick="goNext(0)">Pokračovat →</button></div>
     </div>
-
     <div class="section" id="sec1">
       <div class="section-eyebrow">Sekce 02</div>
       <div class="section-title">VAŠE WORKFLOWS</div>
@@ -172,9 +115,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
         <div class="field">
           <label>Seřaď podle důležitosti</label>
           <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:10px">Přetáhni položky — nejdůležitější nahoře ↑</div>
-          <div class="rank-list" id="rankList">
-            <div class="rank-empty">Nejprve přidej alespoň jeden workflow výše.</div>
-          </div>
+          <div class="rank-list" id="rankList"><div class="rank-empty">Nejprve přidej alespoň jeden workflow výše.</div></div>
         </div>
       </div>
       <div class="nav-wrap">
@@ -182,7 +123,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
         <button class="btn-next" onclick="goNext(1)">Pokračovat →</button>
       </div>
     </div>
-
     <div class="section" id="sec2">
       <div class="section-eyebrow">Sekce 03</div>
       <div class="section-title">GEMINI</div>
@@ -195,117 +135,65 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
         </div>
       </div>
       <div class="conditional" id="cond-yes">
-        <div class="field">
-          <label>K čemu konkrétně?</label>
-          <textarea id="gemini-yes-text" placeholder="Popiš konkrétní případ..."></textarea>
-        </div>
+        <div class="field"><label>K čemu konkrétně?</label><textarea id="gemini-yes-text" placeholder="Popiš konkrétní případ..."></textarea></div>
       </div>
       <div class="conditional" id="cond-no">
-        <div class="field">
-          <label>Co ti v tom brání?</label>
-          <textarea id="gemini-no-text" placeholder="Napiš svůj důvod..."></textarea>
-        </div>
+        <div class="field"><label>Co ti v tom brání?</label><textarea id="gemini-no-text" placeholder="Napiš svůj důvod..."></textarea></div>
       </div>
+      <div class="error-msg" id="errorMsg">Nepodařilo se odeslat. Zkontroluj připojení a zkus znovu.</div>
       <div class="nav-wrap">
         <button class="btn-back" onclick="showSection(1)">← Zpět</button>
-        <button class="btn-next" onclick="submitSurvey()">Odeslat odpovědi ✓</button>
+        <button class="btn-next" id="submitBtn" onclick="submitSurvey()">Odeslat odpovědi ✓</button>
       </div>
     </div>
-
+    <div class="section" id="secSending">
+      <div class="submitting"><div class="spin"></div><p>Odesílám odpovědi...</p></div>
+    </div>
     <div class="section" id="secDone">
       <div class="thankyou">
         <div class="big">DÍKY!</div>
         <p>Tvoje odpovědi byly uloženy. Kuba výsledky zpracuje a brzy se ozve s dalším krokem.</p>
       </div>
     </div>
-
   </div>
 </div>
-
-<div id="adminApp">
-  <div class="admin-bar">
-    <div class="admin-title">AI<span>.</span>AUDIT &nbsp;— ADMIN</div>
-    <div class="admin-actions">
-      <button class="btn-csv" onclick="exportCSV()">↓ Export CSV</button>
-      <button class="btn-logout" onclick="logoutAdmin()">Odhlásit</button>
-    </div>
-  </div>
-  <div class="admin-body" id="adminBody"></div>
-</div>
-
-<div id="loginModal">
-  <div class="login-box">
-    <h2>ADMIN<span>.</span></h2>
-    <p>Zadej heslo pro přístup k výsledkům.</p>
-    <input type="password" id="loginPwd" placeholder="Heslo..." onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-submit" onclick="doLogin()">Přihlásit se</button>
-    <div class="login-err" id="loginErr">Nesprávné heslo.</div>
-    <span class="login-cancel" onclick="hideLoginModal()">Zrušit</span>
-  </div>
-</div>
-
 <script>
-const STORAGE_KEY = 'ai_audit_v3';
-const ADMIN_PWD = 'kuba2025';
-const CATS = ['E-maily & komunikace','Obsah & copywriting','Reporty & data','Výzkum & rešerše','Plánování & organizace','Prezentace','Korektura & překlad','Jiné'];
-const FREQS = ['Denně','Týdně','Měsíčně','Nárazově'];
-const LOADS = ['< 30 min','30–60 min','1–2 hod','2+ hod'];
-const PRIOS = ['Vysoká','Střední','Nízká'];
+// ================================================================
+// STEP 1: Paste your Google Apps Script Web App URL below
+const SCRIPT_URL = 'https://script.google.com/u/1/home/projects/1gVlckhe4Cz5qTXBfdcBlk5ntqQnqSn5fbL2ke9eafrdJSXVbfEms5akW/edit';
+// STEP 2: Paste your Google Sheet URL below (for the Results button)
+const SHEET_URL  = 'https://docs.google.com/spreadsheets/d/1Iiz8yrqJ8kb0VYIH_DiH-PyUK2x-ao-4CsWsEOMSNss/edit?gid=0#gid=0';
+// ================================================================
 
-let ynChoice = null;
-let workflowCount = 0;
-let dragSrc = null;
+const CATS  = ['E-maily & komunikace','Obsah & copywriting','Reporty & data','Vyzkum & reserse','Planovani & organizace','Prezentace','Korektura & preklad','Jine'];
+const FREQS = ['Denne','Tydne','Mesicne','Narazove'];
+const LOADS = ['< 30 min','30-60 min','1-2 hod','2+ hod'];
+const PRIOS = ['Vysoka','Stredni','Nizka'];
+let ynChoice=null,workflowCount=0,dragSrc=null;
 
-// Storage
-function saveAll(data){ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data))}catch(e){sessionStorage.setItem(STORAGE_KEY,JSON.stringify(data))} }
-function loadAll(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return JSON.parse(sessionStorage.getItem(STORAGE_KEY)||'[]')} }
-function addResponse(r){ const all=loadAll(); all.push(r); saveAll(all); }
+if(SCRIPT_URL==='YOUR_SCRIPT_URL_HERE') document.getElementById('setupBanner').style.display='block';
 
-// Nav
+function openSheet(){if(SHEET_URL!=='YOUR_SHEET_URL_HERE')window.open(SHEET_URL,'_blank');}
+
 function showSection(idx){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.step-tab').forEach(t=>{t.classList.remove('active','done')});
-  const map={0:'sec0',1:'sec1',2:'sec2',99:'secDone'};
-  const el=document.getElementById(map[idx]||'sec0');
-  if(el) el.classList.add('active');
-  for(let i=0;i<3;i++){
-    const t=document.getElementById('tab'+i);
-    if(!t)continue;
-    if(i<idx)t.classList.add('done');
-    else if(i===idx)t.classList.add('active');
-  }
+  document.querySelectorAll('.step-tab').forEach(t=>{t.classList.remove('active','done');});
+  const map={0:'sec0',1:'sec1',2:'sec2',98:'secSending',99:'secDone'};
+  const el=document.getElementById(map[idx]);if(el)el.classList.add('active');
+  for(let i=0;i<3;i++){const t=document.getElementById('tab'+i);if(!t)continue;if(i<idx)t.classList.add('done');else if(i===idx)t.classList.add('active');}
 }
 
 function goNext(from){
-  if(from===0){
-    const v=document.getElementById('team').value.trim();
-    if(!v){document.getElementById('team').focus();document.getElementById('team').style.borderColor='var(--red)';return;}
-    document.getElementById('team').style.borderColor='';
-  }
+  if(from===0){const v=document.getElementById('team').value.trim();if(!v){document.getElementById('team').focus();document.getElementById('team').style.borderColor='var(--red)';return;}document.getElementById('team').style.borderColor='';}
   showSection(from+1);
 }
 
-// Workflow rows
-function selOpts(arr){return '<option value="">— vyber —</option>'+arr.map(v=>`<option value="${v}">${v}</option>`).join('')}
+function selOpts(arr){return '<option value="">- vyber -</option>'+arr.map(v=>`<option value="${v}">${v}</option>`).join('');}
 
 function addWorkflowRow(){
-  if(workflowCount>=5)return;
-  workflowCount++;
-  const n=workflowCount;
-  const div=document.createElement('div');
-  div.className='workflow-row';div.dataset.id=n;
-  div.innerHTML=`
-    <div class="workflow-row-header">
-      <span class="workflow-row-num">WORKFLOW ${n}</span>
-      <button class="remove-row" onclick="removeRow(${n})">✕</button>
-    </div>
-    <div class="workflow-grid">
-      <div class="field workflow-name"><label>Název workflow</label><input type="text" placeholder="Popis úkolu nebo procesu..."></div>
-      <div class="field"><label>Kategorie</label><select>${selOpts(CATS)}</select></div>
-      <div class="field"><label>Jak často?</label><select>${selOpts(FREQS)}</select></div>
-      <div class="field"><label>Časová zátěž</label><select>${selOpts(LOADS)}</select></div>
-      <div class="field"><label>Priorita AI</label><select>${selOpts(PRIOS)}</select></div>
-    </div>`;
+  if(workflowCount>=5)return;workflowCount++;const n=workflowCount;
+  const div=document.createElement('div');div.className='workflow-row';div.dataset.id=n;
+  div.innerHTML=`<div class="workflow-row-header"><span class="workflow-row-num">WORKFLOW ${n}</span><button class="remove-row" onclick="removeRow(${n})">x</button></div><div class="workflow-grid"><div class="field workflow-name"><label>Nazev workflow</label><input type="text" placeholder="Popis ukolu nebo procesu..."></div><div class="field"><label>Kategorie</label><select>${selOpts(CATS)}</select></div><div class="field"><label>Jak casto?</label><select>${selOpts(FREQS)}</select></div><div class="field"><label>Casova zatez</label><select>${selOpts(LOADS)}</select></div><div class="field"><label>Priorita AI</label><select>${selOpts(PRIOS)}</select></div></div>`;
   document.getElementById('workflowRows').appendChild(div);
   if(workflowCount>=5)document.getElementById('addRowBtn').style.display='none';
   div.querySelector('input[type=text]').addEventListener('input',updateRankList);
@@ -313,39 +201,22 @@ function addWorkflowRow(){
 }
 
 function removeRow(id){
-  const r=document.querySelector(`.workflow-row[data-id="${id}"]`);
-  if(r)r.remove();
+  const r=document.querySelector(`.workflow-row[data-id="${id}"]`);if(r)r.remove();
   document.getElementById('addRowBtn').style.display='';
-  document.querySelectorAll('.workflow-row').forEach((r,i)=>{
-    r.dataset.id=i+1;
-    r.querySelector('.workflow-row-num').textContent=`WORKFLOW ${i+1}`;
-    r.querySelector('.remove-row').setAttribute('onclick',`removeRow(${i+1})`);
-    const inp=r.querySelector('input[type=text]');
-    inp.removeEventListener('input',updateRankList);
-    inp.addEventListener('input',updateRankList);
-  });
-  workflowCount=document.querySelectorAll('.workflow-row').length;
-  updateRankList();
+  document.querySelectorAll('.workflow-row').forEach((r,i)=>{r.dataset.id=i+1;r.querySelector('.workflow-row-num').textContent=`WORKFLOW ${i+1}`;r.querySelector('.remove-row').setAttribute('onclick',`removeRow(${i+1})`);const inp=r.querySelector('input[type=text]');inp.removeEventListener('input',updateRankList);inp.addEventListener('input',updateRankList);});
+  workflowCount=document.querySelectorAll('.workflow-row').length;updateRankList();
 }
 
 function updateRankList(){
-  const list=document.getElementById('rankList');
-  const rows=document.querySelectorAll('.workflow-row');
-  if(rows.length===0){list.innerHTML='<div class="rank-empty">Nejprve přidej alespoň jeden workflow výše.</div>';return;}
+  const list=document.getElementById('rankList');const rows=document.querySelectorAll('.workflow-row');
+  if(rows.length===0){list.innerHTML='<div class="rank-empty">Nejprve pridej alespon jeden workflow vyse.</div>';return;}
   const currentIds=[...rows].map(r=>r.dataset.id);
   list.querySelectorAll('.rank-item').forEach(el=>{if(!currentIds.includes(el.dataset.wid))el.remove();});
   rows.forEach(r=>{
-    const id=r.dataset.id;
-    const name=r.querySelector('input[type=text]').value.trim()||`Workflow ${id}`;
+    const id=r.dataset.id;const name=r.querySelector('input[type=text]').value.trim()||`Workflow ${id}`;
     let item=list.querySelector(`.rank-item[data-wid="${id}"]`);
-    if(!item){
-      item=document.createElement('div');
-      item.className='rank-item';item.dataset.wid=id;item.draggable=true;
-      item.innerHTML=`<div class="rank-handle"><span></span><span></span><span></span></div><div class="rank-num"></div><div class="rank-text">${name}</div>`;
-      attachDrag(item);list.appendChild(item);
-    } else {
-      item.querySelector('.rank-text').textContent=name;
-    }
+    if(!item){item=document.createElement('div');item.className='rank-item';item.dataset.wid=id;item.draggable=true;item.innerHTML=`<div class="rank-handle"><span></span><span></span><span></span></div><div class="rank-num"></div><div class="rank-text">${name}</div>`;attachDrag(item);list.appendChild(item);}
+    else{item.querySelector('.rank-text').textContent=name;}
   });
   updateRankNums();
 }
@@ -354,147 +225,24 @@ function attachDrag(item){
   item.addEventListener('dragstart',e=>{dragSrc=item;item.classList.add('dragging');e.dataTransfer.effectAllowed='move';});
   item.addEventListener('dragend',()=>{item.classList.remove('dragging');document.querySelectorAll('.rank-item').forEach(i=>i.classList.remove('drag-over'));updateRankNums();});
   item.addEventListener('dragover',e=>{e.preventDefault();if(dragSrc&&dragSrc!==item){document.querySelectorAll('.rank-item').forEach(i=>i.classList.remove('drag-over'));item.classList.add('drag-over');}});
-  item.addEventListener('drop',e=>{
-    e.preventDefault();
-    if(dragSrc&&dragSrc!==item){
-      const list=document.getElementById('rankList');
-      const items=[...list.querySelectorAll('.rank-item')];
-      const si=items.indexOf(dragSrc),ti=items.indexOf(item);
-      if(si<ti)list.insertBefore(dragSrc,item.nextSibling);else list.insertBefore(dragSrc,item);
-    }
-    item.classList.remove('drag-over');
-  });
+  item.addEventListener('drop',e=>{e.preventDefault();if(dragSrc&&dragSrc!==item){const list=document.getElementById('rankList');const items=[...list.querySelectorAll('.rank-item')];const si=items.indexOf(dragSrc),ti=items.indexOf(item);if(si<ti)list.insertBefore(dragSrc,item.nextSibling);else list.insertBefore(dragSrc,item);}item.classList.remove('drag-over');});
 }
 
-function updateRankNums(){
-  document.querySelectorAll('#rankList .rank-item').forEach((el,i)=>{
-    el.querySelector('.rank-num').textContent=i+1;
-  });
-}
+function updateRankNums(){document.querySelectorAll('#rankList .rank-item').forEach((el,i)=>{el.querySelector('.rank-num').textContent=i+1;});}
 
-// YN
-function setYN(val){
-  ynChoice=val;
-  document.getElementById('yn-yes').classList.toggle('selected',val==='yes');
-  document.getElementById('yn-no').classList.toggle('selected',val==='no');
-  document.getElementById('cond-yes').classList.toggle('show',val==='yes');
-  document.getElementById('cond-no').classList.toggle('show',val==='no');
-}
+function setYN(val){ynChoice=val;document.getElementById('yn-yes').classList.toggle('selected',val==='yes');document.getElementById('yn-no').classList.toggle('selected',val==='no');document.getElementById('cond-yes').classList.toggle('show',val==='yes');document.getElementById('cond-no').classList.toggle('show',val==='no');}
 
-// Submit
-function submitSurvey(){
+async function submitSurvey(){
   const team=document.getElementById('team').value.trim();
   const rankItems=[...document.querySelectorAll('#rankList .rank-item')];
-  const workflows=rankItems.map((item,idx)=>{
-    const wid=item.dataset.wid;
-    const row=document.querySelector(`.workflow-row[data-id="${wid}"]`);
-    if(!row)return null;
-    const sels=row.querySelectorAll('select');
-    return{rank:idx+1,name:row.querySelector('input[type=text]').value.trim(),category:sels[0].value,frequency:sels[1].value,load:sels[2].value,priority:sels[3].value};
-  }).filter(w=>w&&w.name);
-
-  addResponse({
-    id:Date.now(),
-    timestamp:new Date().toLocaleString('cs-CZ'),
-    team,workflows,
-    geminiUsed:ynChoice,
-    geminiDetail:ynChoice==='yes'?document.getElementById('gemini-yes-text').value.trim():document.getElementById('gemini-no-text').value.trim()
-  });
-
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById('secDone').classList.add('active');
-  document.querySelectorAll('.step-tab').forEach(t=>{t.classList.remove('active');t.classList.add('done');});
-}
-
-// Admin
-function showLoginModal(){document.getElementById('loginModal').classList.add('show');document.getElementById('loginPwd').value='';document.getElementById('loginErr').style.display='none';setTimeout(()=>document.getElementById('loginPwd').focus(),100);}
-function hideLoginModal(){document.getElementById('loginModal').classList.remove('show');}
-function doLogin(){
-  if(document.getElementById('loginPwd').value===ADMIN_PWD){hideLoginModal();document.getElementById('surveyApp').style.display='none';document.getElementById('adminApp').style.display='block';renderAdmin(loadAll());}
-  else{document.getElementById('loginErr').style.display='block';}
-}
-function logoutAdmin(){document.getElementById('adminApp').style.display='none';document.getElementById('surveyApp').style.display='flex';}
-
-function renderAdmin(responses){
-  const body=document.getElementById('adminBody');
-  if(!responses.length){body.innerHTML='<div class="no-data">Zatím žádné odpovědi.</div>';return;}
-  const allW=responses.flatMap(r=>r.workflows||[]);
-  const teams=[...new Set(responses.map(r=>r.team).filter(Boolean))];
-  const highPrio=allW.filter(w=>w.priority==='Vysoká').length;
-  const geminiYes=responses.filter(r=>r.geminiUsed==='yes').length;
-  const catCount={};CATS.forEach(c=>catCount[c]=0);
-  allW.forEach(w=>{if(w.category)catCount[w.category]=(catCount[w.category]||0)+1;});
-  const maxCat=Math.max(...Object.values(catCount),1);
-  const prioCnt={'Vysoká':0,'Střední':0,'Nízká':0};
-  allW.forEach(w=>{if(w.priority)prioCnt[w.priority]=(prioCnt[w.priority]||0)+1;});
-
-  body.innerHTML=`
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">${responses.length}</div><div class="stat-label">Celkem odpovědí</div></div>
-      <div class="stat-card"><div class="stat-num">${teams.length}</div><div class="stat-label">Týmů zapojeno</div></div>
-      <div class="stat-card"><div class="stat-num">${highPrio}</div><div class="stat-label">Vysoká priorita AI</div></div>
-    </div>
-    <div class="admin-section">
-      <div class="admin-section-title"><span>02</span> Kategorie workflows</div>
-      <div class="bar-chart">${CATS.map(c=>`
-        <div class="bar-row">
-          <div class="bar-label">${c}</div>
-          <div class="bar-track"><div class="bar-fill" style="width:${Math.round((catCount[c]||0)/maxCat*100)}%"></div></div>
-          <div class="bar-val">${catCount[c]||0}</div>
-        </div>`).join('')}
-      </div>
-    </div>
-    <div class="admin-section">
-      <div class="admin-section-title"><span>03</span> Priorita AI</div>
-      <div class="priority-row">
-        <div class="prio-pill high"><div class="pv">${prioCnt['Vysoká']}</div><div class="pl">Vysoká</div></div>
-        <div class="prio-pill mid"><div class="pv">${prioCnt['Střední']}</div><div class="pl">Střední</div></div>
-        <div class="prio-pill low"><div class="pv">${prioCnt['Nízká']}</div><div class="pl">Nízká</div></div>
-      </div>
-    </div>
-    <div class="admin-section">
-      <div class="admin-section-title"><span>04</span> Gemini — ${geminiYes} z ${responses.length} použilo</div>
-      ${responses.filter(r=>r.geminiDetail).map(r=>`
-        <div class="gemini-card">
-          <div class="gemini-card-meta">${r.team||'—'} · ${r.geminiUsed==='yes'?'<span style="color:var(--red)">Použil/a</span>':'Nepoužil/a'}</div>
-          <div class="gemini-card-text">${r.geminiDetail}</div>
-        </div>`).join('')||'<div style="color:var(--text-muted);font-size:.85rem">Zatím žádné komentáře.</div>'}
-    </div>
-    <div class="admin-section">
-      <div class="admin-section-title"><span>05</span> Všechny odpovědi</div>
-      <div style="overflow-x:auto">
-      <table class="resp-table">
-        <thead><tr><th>Datum</th><th>Tým</th><th>Workflow</th><th>Kategorie</th><th>Frekvence</th><th>Zátěž</th><th>Priorita</th><th>Rank</th></tr></thead>
-        <tbody>${responses.flatMap(r=>(r.workflows||[]).map(w=>`
-          <tr>
-            <td style="color:var(--text-muted);white-space:nowrap">${r.timestamp}</td>
-            <td>${r.team||'—'}</td>
-            <td>${w.name||'—'}</td>
-            <td style="color:var(--text-muted)">${w.category||'—'}</td>
-            <td style="color:var(--text-muted)">${w.frequency||'—'}</td>
-            <td style="color:var(--text-muted)">${w.load||'—'}</td>
-            <td><span class="pill pill-${w.priority==='Vysoká'?'high':w.priority==='Střední'?'mid':'low'}">${w.priority||'—'}</span></td>
-            <td style="color:var(--red);font-weight:700">#${w.rank}</td>
-          </tr>`)).join('')}
-        </tbody>
-      </table>
-      </div>
-    </div>`;
-}
-
-function exportCSV(){
-  const responses=loadAll();
-  if(!responses.length)return;
-  let csv='\uFEFFDatum,Tým,Název workflow,Kategorie,Frekvence,Časová zátěž,Priorita AI,Pořadí,Gemini použit,Komentář Gemini\n';
-  responses.forEach(r=>{
-    (r.workflows||[]).forEach(w=>{
-      csv+=[r.timestamp,r.team,w.name,w.category,w.frequency,w.load,w.priority,w.rank,r.geminiUsed==='yes'?'Ano':'Ne',r.geminiDetail||'']
-        .map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')+'\n';
-    });
-  });
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
-  a.download='AI_Audit_Vysledky.csv';a.click();
+  const workflows=rankItems.map((item,idx)=>{const wid=item.dataset.wid;const row=document.querySelector(`.workflow-row[data-id="${wid}"]`);if(!row)return null;const sels=row.querySelectorAll('select');return{rank:idx+1,name:row.querySelector('input[type=text]').value.trim(),category:sels[0].value,frequency:sels[1].value,load:sels[2].value,priority:sels[3].value};}).filter(w=>w&&w.name);
+  const payload={timestamp:new Date().toLocaleString('cs-CZ'),team,workflows,geminiUsed:ynChoice||'nezodpovezeno',geminiDetail:ynChoice==='yes'?document.getElementById('gemini-yes-text').value.trim():document.getElementById('gemini-no-text').value.trim()};
+  document.getElementById('errorMsg').style.display='none';
+  showSection(98);
+  try{
+    await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    showSection(99);
+  }catch(err){showSection(2);document.getElementById('errorMsg').style.display='block';}
 }
 
 addWorkflowRow();
