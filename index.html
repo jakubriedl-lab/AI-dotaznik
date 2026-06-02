@@ -82,7 +82,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
 <div id="surveyApp">
   <div class="top-bar">
     <div class="logo">AI<span>.</span>AUDIT</div>
-  
+    <div class="admin-link" id="sheetBtn" onclick="openSheet()">VÝSLEDKY ↗</div>
   </div>
   <div class="progress-wrap">
     <div class="progress-steps">
@@ -160,9 +160,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white)
 <script>
 // ================================================================
 // STEP 1: Paste your Google Apps Script Web App URL below
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby2OMbm33QOzaQUf3OMzYGkBf0T-lo1SIIs8OwYiDm47XaoLwTfLK9MSCs9C5L5uqkVNQ/exec';
+const SCRIPT_URL = 'YOUR_SCRIPT_URL_HERE';
 // STEP 2: Paste your Google Sheet URL below (for the Results button)
-const SHEET_URL  = 'https://docs.google.com/spreadsheets/d/1Iiz8yrqJ8kb0VYIH_DiH-PyUK2x-ao-4CsWsEOMSNss/edit?gid=0#gid=0';
+const SHEET_URL  = 'YOUR_SHEET_URL_HERE';
 // ================================================================
 
 const CATS  = ['E-maily & komunikace','Obsah & copywriting','Reporty & data','Vyzkum & reserse','Planovani & organizace','Prezentace','Korektura & preklad','Jine'];
@@ -193,7 +193,7 @@ function selOpts(arr){return '<option value="">- vyber -</option>'+arr.map(v=>`<
 function addWorkflowRow(){
   if(workflowCount>=5)return;workflowCount++;const n=workflowCount;
   const div=document.createElement('div');div.className='workflow-row';div.dataset.id=n;
-  div.innerHTML=`<div class="workflow-row-header"><span class="workflow-row-num">WORKFLOW ${n}</span><button class="remove-row" onclick="removeRow(${n})">x</button></div><div class="workflow-grid"><div class="field workflow-name"><label>Nazev workflow</label><input type="text" placeholder="Popis ukolu nebo procesu..."></div><div class="field"><label>Kategorie</label><select>${selOpts(CATS)}</select></div><div class="field"><label>Jak casto?</label><select>${selOpts(FREQS)}</select></div><div class="field"><label>Casova zatez</label><select>${selOpts(LOADS)}</select></div><div class="field"><label>Priorita AI</label><select>${selOpts(PRIOS)}</select></div></div>`;
+  div.innerHTML=`<div class="workflow-row-header"><span class="workflow-row-num">WORKFLOW ${n}</span><button class="remove-row" onclick="removeRow(${n})">x</button></div><div class="workflow-grid"><div class="field workflow-name"><label>Nazev workflow</label><input type="text" placeholder="Popis ukolu nebo procesu..."></div><div class="field"><label>Kategorie</label><select>${selOpts(CATS)}</select></div><div class="field"><label>Jak casto?</label><select>${selOpts(FREQS)}</select></div><div class="field"><label>Casova zatez</label><select>${selOpts(LOADS)}</select></div><div class="field"><label>Priorita AI</label><select>${selOpts(PRIOS)}</select></div><div class="field workflow-name"><label>Komentar</label><textarea placeholder="Doplnujici poznamka k tomuto workflow..." rows="2" style="min-height:56px;resize:none"></textarea></div></div>`;
   document.getElementById('workflowRows').appendChild(div);
   if(workflowCount>=5)document.getElementById('addRowBtn').style.display='none';
   div.querySelector('input[type=text]').addEventListener('input',updateRankList);
@@ -235,7 +235,7 @@ function setYN(val){ynChoice=val;document.getElementById('yn-yes').classList.tog
 async function submitSurvey(){
   const team=document.getElementById('team').value.trim();
   const rankItems=[...document.querySelectorAll('#rankList .rank-item')];
-  const workflows=rankItems.map((item,idx)=>{const wid=item.dataset.wid;const row=document.querySelector(`.workflow-row[data-id="${wid}"]`);if(!row)return null;const sels=row.querySelectorAll('select');return{rank:idx+1,name:row.querySelector('input[type=text]').value.trim(),category:sels[0].value,frequency:sels[1].value,load:sels[2].value,priority:sels[3].value};}).filter(w=>w&&w.name);
+  const workflows=rankItems.map((item,idx)=>{const wid=item.dataset.wid;const row=document.querySelector(`.workflow-row[data-id="${wid}"]`);if(!row)return null;const sels=row.querySelectorAll('select');const ta=row.querySelector('textarea');return{rank:idx+1,name:row.querySelector('input[type=text]').value.trim(),category:sels[0].value,frequency:sels[1].value,load:sels[2].value,priority:sels[3].value,comment:ta?ta.value.trim():''};}).filter(w=>w&&w.name);
   const payload={timestamp:new Date().toLocaleString('cs-CZ'),team,workflows,geminiUsed:ynChoice||'nezodpovezeno',geminiDetail:ynChoice==='yes'?document.getElementById('gemini-yes-text').value.trim():document.getElementById('gemini-no-text').value.trim()};
   document.getElementById('errorMsg').style.display='none';
   showSection(98);
